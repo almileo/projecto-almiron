@@ -1,0 +1,14 @@
+.content {
+    border: 1px solid black;
+    background-color: rgba(0, 128, 0, 0.342);
+    width: 100%;
+}
+
+.active {
+    color: black;
+    font-weight: bold;
+}
+
+.inactive {
+    color: red;
+}

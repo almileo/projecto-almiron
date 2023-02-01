@@ -1,0 +1,41 @@
+<div class="centered" *ngIf="showAddCourse">
+    <form [formGroup]="form" (ngSubmit)="onAddCourse()">
+        <div class="inputs">
+            <mat-form-field class="example-full-width" class="input-name">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="name">
+                <mat-hint *ngIf="!this.form.get('name')?.valid && this.form.touched" class="error">El nombre no puede ser de más de 10 caracteres</mat-hint>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Duracion</mat-label>
+                <input matInput type="number" formControlName="duration">
+                <mat-hint *ngIf="!this.form.get('duration')?.valid && this.form.touched" class="error">La duración es requerida</mat-hint>
+            </mat-form-field>
+        </div>
+    
+        <mat-form-field class="input-name">
+            <mat-label>Fecha Inicio</mat-label>
+            <input matInput [matDatepicker]="pickerStart" formControlName="startDate">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="pickerStart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStart></mat-datepicker>
+            <mat-hint *ngIf="!this.form.get('startDate')?.valid && this.form.touched" class="error">La fecha de inicio es requerida</mat-hint>
+        </mat-form-field>
+    
+        <mat-form-field>
+            <mat-label>Fecha Fin</mat-label>
+            <input matInput [matDatepicker]="pickerEnd" formControlName="endDate">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEnd></mat-datepicker>
+            <mat-hint *ngIf="!this.form.get('endDate')?.valid && this.form.touched" class="error">La fecha de fin es requerida</mat-hint>
+        </mat-form-field>
+    
+        <div class="isPaid">
+            <mat-checkbox formControlName="isPaid">¿Es de pago?</mat-checkbox>
+        </div>
+    
+        <button mat-raised-button [mat-dialog-close]="null">Cerrar</button>
+        <button mat-raised-button [disabled]="!form.valid" type="submit">Agregar</button>
+    </form>
+</div>

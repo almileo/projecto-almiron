@@ -1,0 +1,27 @@
+.centered {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.error {
+    color: rgba(255, 0, 0, 0.795);
+}
+
+.isPaid{
+    margin: 20px 0px;
+    
+}
+
+.inputs{
+    margin: 20px 0;
+}
+
+.input-name{
+    margin-right: 20px;
+}
+
+button {
+    margin-right: 15px;
+}

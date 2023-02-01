@@ -1,0 +1,9 @@
+<div class="content">
+  <h4>Alumnos</h4>
+
+  <ul *ngFor="let student of students">
+    <li [ngClass]="student.isActive ? 'active' : 'inactive'">{{ student.name }} {{ student.lastName }}</li>
+    <button *ngIf="!student.isActive" (click)="activateStudent()">Activar</button>
+    <button [disabled]="!student.isActive" (click)="addCourse()">Agergar curso</button>
+  </ul>
+</div>
